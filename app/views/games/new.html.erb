@@ -1,0 +1,20 @@
+<div class="video-background">
+    <div class="video-foreground">
+      <iframe src="https://www.youtube.com/embed/M2dhD9zR6hk?loop=1&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+<div class="rack">
+
+  <% @letters.each do |letter| %>
+  <div class="tile" data-letter="<%= letter %>"></div>
+  <% end %>
+</div>
+<div style="height: 20vh"></div>
+
+<form action="/score" method="POST" autocomplete="off">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :board, @letters %>
+  <input type="text" name="userinput" style="border: 1px solid rgba(200,200,200,0.5); background-color: rgba(240,240,240,0.2); width: 300px; height: 60px; font-family: Oswald; font-size: 2em; text-align: center; text-transform: uppercase;">
+  <input type="submit" hidden="true">
+</form>

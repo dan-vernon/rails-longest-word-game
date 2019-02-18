@@ -1,0 +1,20 @@
+
+<div class="rack">
+
+  <% @board.each do |letter| %>
+  <div class="tile" data-letter="<%= letter %>"></div>
+  <% end %>
+</div>
+
+<h1><%= @message %></h1>
+
+<h2>Round score <%= @score %> | Total <%= session[:score] %></h2>
+
+<div class="rack">
+
+  <% @input.each do |letter| %>
+  <div class="tile" data-letter="<%= letter %>"></div>
+  <% end %>
+</div>
+
+<h2><%= link_to "Encore un fois", new_path %></h2>
